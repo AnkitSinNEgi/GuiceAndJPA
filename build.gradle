@@ -1,0 +1,39 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories{
+	jcenter()
+	mavenCentral()
+}
+
+dependencies{
+	
+	// https://mvnrepository.com/artifact/com.sun.jersey.contribs/jersey-guice
+	implementation group: 'com.sun.jersey.contribs', name: 'jersey-guice', version: '1.19'
+	
+	// https://mvnrepository.com/artifact/com.google.inject/guice
+	implementation group: 'com.google.inject', name: 'guice', version: '4.0'
+	
+	// https://mvnrepository.com/artifact/org.codehaus.mojo/animal-sniffer-annotations
+	compileOnly group: 'org.codehaus.mojo', name: 'animal-sniffer-annotations', version: '1.14'
+	
+	// https://mvnrepository.com/artifact/org.checkerframework/checker-compat-qual
+	implementation group: 'org.checkerframework', name: 'checker-compat-qual', version: '2.0.0'
+	
+	// https://mvnrepository.com/artifact/javax.annotation/jsr250-api
+	implementation group: 'javax.annotation', name: 'jsr250-api', version: '1.0'
+	
+	// https://mvnrepository.com/artifact/org.ow2.asm/asm
+	implementation group: 'org.ow2.asm', name: 'asm', version: '9.0'
+	
+	implementation 'com.google.inject.extensions:guice-servlet:4.2.0'
+	implementation 'com.google.inject.extensions:guice-persist:4.2.0'
+	implementation 'javax.servlet:javax.servlet-api:3.1.0'
+	implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.5.6.Final'
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.23'
+
+	// https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+	compileOnly 'javax.servlet:javax.servlet-api:3.0.1'
+	
+	
+}	
