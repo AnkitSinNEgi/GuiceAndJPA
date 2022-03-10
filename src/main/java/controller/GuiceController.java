@@ -1,12 +1,17 @@
 package controller;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
+
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 
 import com.google.inject.Inject;
 
@@ -18,6 +23,15 @@ public class GuiceController {
 		
 		@Inject
 		private UserService userService;
+		
+		@POST
+		@Path("/authbyjson")
+		@Consumes(MediaType.APPLICATION_JSON)
+		@Produces(MediaType.TEXT_PLAIN)
+		public String authenticate(JSONObject jsonObject)throws JSONException {
+			return userService.authenticate(jsonObject.getString("userName"),jsonObject.getString("password"));
+			
+		}
 		
 		@GET
 		@Path("/authbyquery")

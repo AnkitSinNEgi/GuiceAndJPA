@@ -35,5 +35,10 @@ dependencies{
 	// https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
 	compileOnly 'javax.servlet:javax.servlet-api:3.0.1'
 	
+	// https://mvnrepository.com/artifact/com.sun.jersey/jersey-json
+	implementation group: 'com.sun.jersey', name: 'jersey-json', version: '1.19.4'
+	
+	// https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-server
+	implementation 'org.glassfish.jersey.core:jersey-server:2.22.2'
 	
 }	
