@@ -41,4 +41,8 @@ dependencies{
 	// https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-server
 	implementation 'org.glassfish.jersey.core:jersey-server:2.22.2'
 	
+	// https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager
+	implementation 'org.hibernate:hibernate-entitymanager:4.3.6.Final'
+	
+	
 }	

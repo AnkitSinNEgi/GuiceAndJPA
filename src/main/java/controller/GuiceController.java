@@ -24,6 +24,17 @@ public class GuiceController {
 		@Inject
 		private UserService userService;
 		
+		//method to save value in user table
+		public String save(JSONObject jsonObject) throws JSONException{
+			System.out.println("GuiceController : save");
+			User user =new User();
+			user.setUserName(jsonObject.getString("userName"));
+			user.setPassword(jsonObject.getString("password"));
+			return userService.save(user);
+		}
+		
+		
+		
 		@POST
 		@Path("/authbyjson")
 		@Consumes(MediaType.APPLICATION_JSON)
