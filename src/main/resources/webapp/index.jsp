@@ -9,7 +9,8 @@
 <body>
 <br>Hello Googler</br>
 <a href="google/guice/sayHello" target="_blank">Say Hello</a>
-<a href="google/guice/authbyuri?userName=test&password=test" target="_blank">Login by Uri</a>
-<a href="google/guice/authbyquery?userName=test&password=test" target="_blank">Login by Uri</a>
+<a href="google/guice/sayHello" target="_blank">User List</a>
+<a href="google/guice/authbyuri?userName=test&password=test" target="_blank">Login by Pin</a>
+<a href="google/guice/authbyquery?userName=test&password=test" target="_blank">Login by Pattern</a>
 </body>
 </html>

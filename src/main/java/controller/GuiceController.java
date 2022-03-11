@@ -15,6 +15,10 @@ import org.codehaus.jettison.json.JSONObject;
 
 import com.google.inject.Inject;
 
+import impl.GuiceService;
+import impl.UserService;
+import model.User;
+
 @Path("/guice")
 public class GuiceController {
 
@@ -28,7 +32,7 @@ public class GuiceController {
 		public String save(JSONObject jsonObject) throws JSONException{
 			System.out.println("GuiceController : save");
 			User user =new User();
-			user.setUserName(jsonObject.getString("userName"));
+			user.setName(jsonObject.getString("userName"));
 			user.setPassword(jsonObject.getString("password"));
 			return userService.save(user);
 		}
@@ -63,7 +67,7 @@ public class GuiceController {
 		@Path("/sayHello")
 		@Produces(MediaType.TEXT_PLAIN)
 		public String sayHello() {
-			return guiceService.sayHello();
+			return guiceService.sayHello(null);
 		}
 		
 }

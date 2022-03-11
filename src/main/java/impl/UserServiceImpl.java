@@ -3,6 +3,8 @@
 package impl;
 
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.codehaus.jettison.json.JSONArray;
@@ -12,7 +14,7 @@ import org.codehaus.jettison.json.JSONObject;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
 
-import antlr.collections.List;
+//import antlr.collections.List;
 import model.User;
 
 public class UserServiceImpl implements UserService{
@@ -53,6 +55,7 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	@Override
+	@Transactional
 	public String list() {
 		System.out.println("UserServiceImpl : list ");
 		List<User>users =entityManager.createQuery("FROM User").getResultList();
@@ -61,15 +64,15 @@ public class UserServiceImpl implements UserService{
 		try {
 			for(User user :users) {
 				JSONObject userJSON =new JSONObject();
-				userJSON.put("userName",user.getUserName());
-				userJSON.put("password",user.get());
+				userJSON.put("userName",user.getName());
+				userJSON.put("password",user.getPassword());
 				jsonArray.put(userJSON);
 			}
 			jsonObject.put("users",jsonArray);
 		} catch(Exception ex) {
 			ex.printStackTrace();
 		}
-		return null;
+		return jsonObject.toString();
 	}
 	
 	

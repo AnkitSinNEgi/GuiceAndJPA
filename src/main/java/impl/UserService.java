@@ -1,9 +1,9 @@
+package impl;
 
- import com.google.inject.ImplementedBy;
+import impl.GuiceServiceImpl;
+import com.google.inject.ImplementedBy;
 
 import model.User;
-import service.UserServiceImpl;
-
 
 @ImplementedBy(UserServiceImpl.class)
 public interface UserService{
@@ -12,5 +12,4 @@ public interface UserService{
 	String save(User user);
 	
 	String list();
-	
-}
+	}
