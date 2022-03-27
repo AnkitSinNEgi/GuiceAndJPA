@@ -28,15 +28,27 @@ public class GuiceController {
 		@Inject
 		private UserService userService;
 		
+		@GET
+		@Path("/list")
+		@Produces(MediaType.Application_JSON)
+		public String list() {
+			System.out.println("GuiceController : list");
+			return userService list();
+		}
+		
 		//method to save value in user table
+		@POST
+		@Path("/save")
+		@Consumes(MediaType.APPLICATION_JSON)
+		@Produces(MediaType.APPLICATION_JSON)
+		
 		public String save(JSONObject jsonObject) throws JSONException{
 			System.out.println("GuiceController : save");
 			User user =new User();
 			user.setName(jsonObject.getString("userName"));
 			user.setPassword(jsonObject.getString("password"));
-			return userService.save(user);
+		return userService.save(user);
 		}
-		
 		
 		
 		@POST

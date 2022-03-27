@@ -10,29 +10,29 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table
+@Table(name ='User')
 public class User {
      
 	 private Long id;
-	 private String name;
+	 private String userName;
 	 private String password;
 	
 	 @Id
-	 @GeneratedValue(strategy=GenerationType.AUTO)
+	 @GeneratedValue()
 	 public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	@Column(name="userName")
-	public String getName() {
-		return name;
+	@Column(name="user_name")
+	public String getUserName() {
+		return userName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	@Column(name="Password")
+	@Column(name="password")
 	public String getPassword() {
 		return password;
 	}

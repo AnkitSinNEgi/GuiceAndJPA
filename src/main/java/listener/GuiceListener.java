@@ -18,12 +18,11 @@ public class GuiceListener extends GuiceServletContextListener{
 		@Override
 		protected Injector getInjector() {
 			Injector injector = Guice.createInjector(new JerseyServletModule() {
-				
-				
 				@Override
 				protected void configureServlets() {
 					bind(GuiceController.class);
 					serve("/google/").with(GuiceContainer.class);
+					serve("/login").with(GuiceContainer.class);
 				//	serve("/rest/*").with(GuiceContainer.class);
 				}
 			},new JpaPersistModule("db_manager"));

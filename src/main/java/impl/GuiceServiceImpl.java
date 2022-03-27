@@ -2,7 +2,8 @@ package impl;
 import impl.GuiceService;
 
 public class GuiceServiceImpl implements GuiceService {
-  public String sayHello() {
+ 
+	public String sayHello() {
 	  return "Hello World";
 	  
   }

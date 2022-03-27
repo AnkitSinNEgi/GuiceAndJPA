@@ -4,15 +4,17 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
+     
+     
              
     <persistence-unit name="db_manager" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <class> model.User</class>
-    
+  
      <properties>
      <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
   <property name="hibernate.connection.password">axelor</property>
-  <property name="hibernate.connection.url">jdbc:postgresql://localhost:5433/User</property>
+  <property name="hibernate.connection.url">jdbc:postgresql://localhost:5433/db_manager</property>
   <property name="hibernate.connection.username">axelor</property>
   <property name="hibernate.connection.pool_size" value="10"/>
   <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
@@ -27,9 +29,20 @@
   <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
   
    </properties> 
-    
-    
-    
-    
+       
      </persistence-unit>
      </persistence>
+  
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     

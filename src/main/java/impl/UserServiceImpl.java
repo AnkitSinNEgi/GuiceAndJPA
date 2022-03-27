@@ -7,8 +7,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.codehaus.jettison.json.JSONArray;
-import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
 import com.google.inject.Inject;
@@ -28,7 +26,7 @@ public class UserServiceImpl implements UserService{
 		
 		String status =null;
 		String query = "FROM User WHERE userName= userName and password= password";
-		User user = (User)entityManager.createQuery(query).setParameter("userName",userName)
+		User user = (User) entityManager.createQuery(query).setParameter("userName",userName)
 				.setParameter("password",password).getSingleResult();
 		System.out.println(user);
 		if(user!=null)
@@ -39,41 +37,43 @@ public class UserServiceImpl implements UserService{
 		}
 		return status;
 	}
+	
 	@Override
 	@Transactional
 	public String save(User user) {
-		System.out.println("UserServiceImpl : save ");
+		System.out.println("UserServiceImpl : save");
 		entityManager.persist(user);
-		JSONObject jsonObject = new JSONObject();
+		JSONObject.jsonObject =new JSONObject();
 		try {
-			jsonObject.put("status","User Save successfully");
-		}
-		catch(JSONException e) {
-			e.printStackTrace();
+			jsonObject.put("status","User saved successfully");
+		}catch(JSONException e) {
+			e.persistStackTrace();
 		}
 		return jsonObject.toString();
+		
 	}
-	
 	@Override
 	@Transactional
 	public String list() {
-		System.out.println("UserServiceImpl : list ");
-		List<User>users =entityManager.createQuery("FROM User").getResultList();
-		JSONArray jsonArray = new JSONArray();
+		System.out.println("UserServiceImpl : list");
+		List<User> users =entityManager.createQuery("FROM User").getResultList();
+		JSONArray jsonArray =new JSONArray();
 		JSONObject jsonObject =new JSONObject();
 		try {
-			for(User user :users) {
+			for(User user = users ) {
 				JSONObject userJSON =new JSONObject();
-				userJSON.put("userName",user.getName());
+				userJSON.put("userName",user.getUserName());
 				userJSON.put("password",user.getPassword());
-				jsonArray.put(userJSON);
+				jsonArray.put(userJSON);	
 			}
-			jsonObject.put("users",jsonArray);
-		} catch(Exception ex) {
-			ex.printStackTrace();
+			jsonObject.put("user",jsonArray);
+		}
+			catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
 		}
 		return jsonObject.toString();
 	}
-	
 	
 }

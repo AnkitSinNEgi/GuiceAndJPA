@@ -1,6 +1,6 @@
 package impl;
 
-import impl.GuiceServiceImpl;
+//import impl.GuiceServiceImpl;
 import com.google.inject.ImplementedBy;
 
 import model.User;
